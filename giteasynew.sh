@@ -103,7 +103,7 @@ GitAdd () {
 
 #funkcija 11 Git Commit
 GitCommit () {
-	git commit -m "added "
+	git commit -m "added $chosefile1"
 }
 
 #funkcija 12 Git Push
