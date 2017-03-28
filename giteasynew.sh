@@ -47,14 +47,14 @@ izlaz () {
 	echo "			  #####    #   #    # #    #   #   # #    #  ####  "  
 }
 
-djoka=$(ls -w 1)
+list=$(ls -w 1)
 
 folder1 () {
-folder=$(zenity --entry --title "Pick the File/Folder to Archive" --width 400 --text "What is the folder/file you wish to archive called?" --entry-text=$djoka)
+folder=$(zenity --entry --title "Pick file/folder to ADD" --width 400 --text "Your file/folder is called?" --entry-text=$list)
 }
 
 folder2 () {
-folder3=$(zenity --entry --title "Pick the File/Folder to Archive" --width 400 --text "What is the folder/file you wish to archive called?" --entry-text=$djoka)
+folder3=$(zenity --entry --title "Chose GitHub Repo" --width 400 --text "Your Repo is:" --entry-text=$list)
 }
 
 #funkcija 2 Git Clone
@@ -74,13 +74,13 @@ CopyMe () {
 
 #test
 testme1 () {
-username=`zenity --entry --title="Cyberoam Login" --width=300 --height=150 \
+username=`zenity --entry --title="GitHUb Username" --width=300 --height=150 \
   --text="Enter Username"`
 }
 
 testme2 () {
-password=`zenity --entry --title="Cyberoam Login" --width=300 --height=150 \
-  --text="Enter pass" --hide-text`
+password=`zenity --entry --title="GitHub Password" --width=300 --height=150 \
+  --text="Enter Password" --hide-text`
 }
 
 #funkcija 5 Git Status
@@ -137,7 +137,7 @@ menu () {
 |                                                                              |
 ################################################################################"
 		echo -e $white " "
-		echo -e $white"	[$okegreen"01"$white]$okegreen  Git Clone 			[$okegreen"10"$white]$okegreen Com 1"
+		echo -e $white"	[$okegreen"01"$white]$okegreen  Git Clone 			[$okegreen"10"$white]$okegreen Add Commit Push"
 		echo -e $white"	[$okegreen"02"$white]$okegreen  Copy Me 			  [$okegreen"11"$white]$okegreen Com 2"
   		echo -e $white"	[$okegreen"03"$white]$okegreen  Git Status "
   		echo -e $white"	[$okegreen"04"$white]$okegreen  Git Pull "
@@ -194,6 +194,7 @@ menu () {
         testme2
         folder2
   			GitPush
+
     	elif test $izaberi == '8'
         	then
         	firefox https://www.paypal.me/Stratimo/5 https://www.facebook.com/stratimo https://www.youtube.com/channel/UCGHr9v-O8ZOsxh-HtJNqQJA
@@ -207,9 +208,13 @@ menu () {
 
    		elif test $izaberi == '10'
    			then
-   			clonme
-   			GitClone
-
+   			folder1
+        GitAdd
+        GitCommit
+        testme1
+        testme2
+        folder2
+        GitPush
 
    		else
   			echo -e "  Incorrect Number"
