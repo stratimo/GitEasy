@@ -103,7 +103,7 @@ GitAdd () {
 
 #funkcija 11 Git Commit
 GitCommit () {
-	git commit -m "added $chosefile1"
+	git commit -m "added "
 }
 
 #funkcija 12 Git Push
@@ -126,7 +126,7 @@ menu () {
 |                                                                              |
 |         Youtube: www.youtube.com/channel/UCGHr9v-O8ZOsxh-HtJNqQJA            |
 |                                                                              |
-|                    Donacije: www.paypal.me/Stratimo/5                        |
+|                    Donate: www.paypal.me/Stratimo/5                        |
 |                                                                              |
 |                                   [$red OK$cyan ]                                     |
 |                                                                              |
