@@ -1,2 +1,2 @@
 # GitEasy
-soon :D done
+soon
