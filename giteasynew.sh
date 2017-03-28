@@ -74,12 +74,12 @@ CopyMe () {
 
 #test
 testme1 () {
-username=`zenity --entry --title="GitHUb Username" --width=300 --height=150 \
+username=`zenity --entry --title="  GitHUb Username" --width=200 --height=150 \
   --text="Enter Username"`
 }
 
 testme2 () {
-password=`zenity --entry --title="GitHub Password" --width=300 --height=150 \
+password=`zenity --entry --title="  GitHub Password" --width=200 --height=150 \
   --text="Enter Password" --hide-text`
 }
 
