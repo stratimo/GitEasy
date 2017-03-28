@@ -54,7 +54,7 @@ chosefile1=$(zenity --entry --title "Pick file/folder to ADD" --width 400 --text
 }
 
 choserepo () {
-choserepo1=$(zenity --entry --title "Chose GitHub Repo" --width 400 --text "Your Repo is:" --entry-text=$list)
+choserepo1=$(zenity --entry --title "GitHub Repo" --text "Repo name" --entry-text "Repo name!")
 }
 
 #funkcija 2 Git Clone
