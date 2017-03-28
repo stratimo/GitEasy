@@ -74,12 +74,12 @@ CopyMe () {
 
 #test
 testme1 () {
-username=`zenity --entry --title="  GitHUb Username" --width=200 --height=150 \
+username=`zenity --entry --title="GitHUb Username" --width=200 --height=150 \
   --text="Enter Username"`
 }
 
 testme2 () {
-password=`zenity --entry --title="  GitHub Password" --width=200 --height=150 \
+password=`zenity --entry --title="GitHub Password" --width=200 --height=150 \
   --text="Enter Password" --hide-text`
 }
 
@@ -141,11 +141,9 @@ menu () {
 		echo -e $white"	[$okegreen"02"$white]$okegreen  Copy Me 			  [$okegreen"11"$white]$okegreen Com 2"
   		echo -e $white"	[$okegreen"03"$white]$okegreen  Git Status "
   		echo -e $white"	[$okegreen"04"$white]$okegreen  Git Pull "
-  		echo -e $white"	[$okegreen"05"$white]$okegreen  Git Add "
-  		echo -e $white"	[$okegreen"06"$white]$okegreen  Git Commit "
-  		echo -e $white"	[$okegreen"07"$white]$okegreen  Git Push "
-  		echo -e $white"	[$okegreen"08"$white]$okegreen  Pogledaj ovo :D "
-   		echo -e $white"	[$okegreen"09"$white]$okegreen  Izadji iz programa "
+  		echo -e $white"	[$okegreen"05"$white]$okegreen  Git Add , Commit , Push"
+  		echo -e $white"	[$okegreen"06"$white]$okegreen  Pogledaj ovo :D "
+   		echo -e $white"	[$okegreen"07"$white]$okegreen  Izadji iz programa "
   		echo -e " "
   		echo -n -e $red"  $madeby@$name: "; tput sgr0 #insert your choice
   		read izaberi
@@ -175,46 +173,24 @@ menu () {
 
   		elif test $izaberi == '5'
   			then
-  			echo ""
         folder1
-  			echo "U tvoj folder su"
-  			GitAdd
-  			echo -e $red ""
-			echo -e $RESET ""
-			GitAdd
-
-  		elif test $izaberi == '6'
-  			then
-  			echo -e $yellow"do you want to add this file $red$GitAdd"
-			GitCommit
-
-  		elif test $izaberi == '7'
-  			then
-        testme1
-        testme2
-        folder2
-  			GitPush
-
-    	elif test $izaberi == '8'
-        	then
-        	firefox https://www.paypal.me/Stratimo/5 https://www.facebook.com/stratimo https://www.youtube.com/channel/UCGHr9v-O8ZOsxh-HtJNqQJA
-
-    	elif test $izaberi == '9'
-        	then
-        	clear
-        	izlaz
-        	sleep 1
-        	clear && exit 0
-
-   		elif test $izaberi == '10'
-   			then
-   			folder1
         GitAdd
         GitCommit
         testme1
         testme2
         folder2
         GitPush
+
+    	elif test $izaberi == '6'
+        	then
+        	firefox https://www.paypal.me/Stratimo/5 https://www.facebook.com/stratimo https://www.youtube.com/channel/UCGHr9v-O8ZOsxh-HtJNqQJA
+
+    	elif test $izaberi == '7'
+        	then
+        	clear
+        	izlaz
+        	sleep 1
+        	clear && exit 0
 
    		else
   			echo -e "  Incorrect Number"
