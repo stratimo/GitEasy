@@ -103,7 +103,7 @@ GitAdd () {
 
 #funkcija 11 Git Commit
 GitCommit () {
-	git commit -m "added $chosefile1"
+	git commit -m "added "
 }
 
 #funkcija 12 Git Push
@@ -193,7 +193,7 @@ menu () {
    		else
   			echo -e "  Incorrect Number"
   			fi
-  			echo -n -e $blue"Do you wanna back to main menu ?$red (Y)es$blue$green (N)o$blue : "
+  			echo -n -e $blue"Do you want to return to the main menu ?$red (Y)es$blue$green (N)o$blue : "
   			read input
 		if [[ $input == "Y" || $input == "y" || $input == "yes" ]]; then
 				clear
