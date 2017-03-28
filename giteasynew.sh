@@ -49,78 +49,72 @@ izlaz () {
 
 list=$(ls -w 1)
 
+#funckija 1 Chose file to ADD
 chosefile () {
-chosefile1=$(zenity --entry --title "Pick file/folder to ADD" --width 400 --text "Your file/folder is called?" --entry-text=$list)
+  chosefile1=$(zenity --entry --title "Pick file/folder to ADD" --width 400 --text "Your file/folder is called?" --entry-text=$list)
 }
 
+#funckija 2 Enter Repo name
 choserepo () {
-choserepo1=$(zenity --entry --title "GitHub Repository" --text "Repository Name" --entry-text "Enter here Repository Name!")
+  choserepo1=$(zenity --entry --title "GitHub Repository" --text "Repository Name" --entry-text "Enter here Repository Name!")
 }
 
-#funkcija 2 Git Clone
+#funkcija 3 Git Clone
 GitClone () {
 	gitclonefile=$(zenity --entry --title "Git Clone" --text "Your file will be copied here:\n`pwd`/" --entry-text "Url for clone/download !!!")
 }
 
-#funkcija 3 Git Add Select File
+#funkcija 4 Git Add Select File
 gitaddselectfile () {
-	selectme=$(zenity --list --title "☣ Select File ☣" --text "\nAvailable Files:" --radiolist --column "Pick" --column "Option" `ls`) > /dev/null 2>&1
+  selectme=$(zenity --entry --title "Select Folder" --width 400 --text "Select Folder to copy $name\nAvailable Files:" --entry-text=$list)
 }
 
-#funkcija 4 Copy Me
+#funkcija 5 Copy Me
 CopyMe () {
 	zenity --warning --icon-name=dialog-question --ok-label=Copy --title="Copy Me" --text="You will copy $name to new cloned script!\n Just select the cloned folders name !\n And wait to open new terminal ! \n Next time when you want to use this script\n just go in cloned folder and open $name !" --width 300 --height 200;
 }
 
-#funkcija 7 GitHub Username
+#funkcija 6 GitHub Username
 username1 () {
 username=`zenity --entry --title="GitHUb Username" --width=200 --height=150 \
   --text="Enter Username"`
 }
 
-#funckija 8 GitHub Password
+#funckija 7 GitHub Password
 password2 () {
 password=`zenity --entry --title="GitHub Password" --width=200 --height=150 \
   --text="Enter Password" --hide-text`
 }
 
-#funkcija 5 Git Status
+#funkcija 8 Git Status
 GitStatus () {
 	git status
 }
 
-#funkcija 6 Git Pull
+#funkcija 9 Git Pull
 GitPull () {
 	git pull
 }
 
-#funkcija 7 Git Add
+#funkcija 10 Git Add
 GitAdd () {
 	git add $chosefile1
 }
 
-#funkcija 8 Git Commit
+#funkcija 11 Git Commit
 GitCommit () {
 	git commit -m "added $gitadd"
 }
 
-#funkcija 9 Git Push
+#funkcija 12 Git Push
 GitPush () {
 	git push https://$username:$password@github.com/$username/$choserepo1.git
-
 }
 
-#funkcija 10 pauza
-pause () {
-   echo ""
-   read -sn 1 -p "Back to main menu !"
-}
-
-
-#funkcija 12 Meni
+#funkcija 13 Meni
 menu () {
   clear
-  resize -s 26 80 > /dev/null
+  resize -s 27 80 > /dev/null
   echo -e $cyan"
 ################################################################################
 |                                                                              |
@@ -136,17 +130,20 @@ menu () {
 |                                                                              |
 |                                   [$red OK$cyan ]                                     |
 |                                                                              |
+################################################################################
+|   Location: $red`pwd`$cyan
 ################################################################################"
-		echo -e $white " "
-		echo -e $white"	[$okegreen"01"$white]$okegreen  Git Clone"
-		echo -e $white"	[$okegreen"02"$white]$okegreen  Git Status"
-  		echo -e $white"	[$okegreen"03"$white]$okegreen  Git Pull"
-  		echo -e $white"	[$okegreen"04"$white]$okegreen  Git Add , Commit , Push"
-  		echo -e $white"	[$okegreen"05"$white]$okegreen  Copy Me"
-  		echo -e $white"	[$okegreen"06"$white]$okegreen  Pogledaj ovo :D "
-   		echo -e $white"	[$okegreen"07"$white]$okegreen  Exit "
-  		echo -e " "
-  		echo -n -e $red"  $madeby@$name: "; tput sgr0 #insert your choice
+		
+    echo -e $white " "
+		echo -e $white"                          [$okegreen"1"$white]$okegreen  Git Clone"
+		echo -e $white"                          [$okegreen"2"$white]$okegreen  Git Status"
+  	echo -e $white"                          [$okegreen"3"$white]$okegreen  Git Pull"
+  	echo -e $white"                          [$okegreen"4"$white]$okegreen  Git Add , Commit , Push"
+  	echo -e $white"                          [$okegreen"5"$white]$okegreen  Copy Me"
+  	echo -e $white"                          [$okegreen"6"$white]$okegreen  About Me"
+   	echo -e $white"                          [$okegreen"7"$white]$okegreen  Exit"
+  	echo -e " "
+  	echo -n -e $red"         $madeby@$name: "; tput sgr0 
   		read izaberi
 
   		if test $izaberi == '1'
