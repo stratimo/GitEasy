@@ -49,12 +49,12 @@ izlaz () {
 
 list=$(ls -w 1)
 
-folder1 () {
-folder=$(zenity --entry --title "Pick file/folder to ADD" --width 400 --text "Your file/folder is called?" --entry-text=$list)
+chosefile () {
+chosefile1=$(zenity --entry --title "Pick file/folder to ADD" --width 400 --text "Your file/folder is called?" --entry-text=$list)
 }
 
-folder2 () {
-folder3=$(zenity --entry --title "Chose GitHub Repo" --width 400 --text "Your Repo is:" --entry-text=$list)
+choserepo () {
+choserepo1=$(zenity --entry --title "Chose GitHub Repo" --width 400 --text "Your Repo is:" --entry-text=$list)
 }
 
 #funkcija 2 Git Clone
@@ -72,13 +72,14 @@ CopyMe () {
 	zenity --warning --icon-name=dialog-question --ok-label=Copy --title="Copy Me" --text="You will copy $name to new cloned script!\n Just select the cloned folders name !\n And wait to open new terminal ! \n Next time when you want to use this script\n just go in cloned folder and open $name !" --width 300 --height 200;
 }
 
-#test
-testme1 () {
+#funkcija 7 GitHub Username
+username1 () {
 username=`zenity --entry --title="GitHUb Username" --width=200 --height=150 \
   --text="Enter Username"`
 }
 
-testme2 () {
+#funckija 8 GitHub Password
+password2 () {
 password=`zenity --entry --title="GitHub Password" --width=200 --height=150 \
   --text="Enter Password" --hide-text`
 }
@@ -95,7 +96,7 @@ GitPull () {
 
 #funkcija 7 Git Add
 GitAdd () {
-	git add $folder
+	git add $chosefile1
 }
 
 #funkcija 8 Git Commit
@@ -105,7 +106,7 @@ GitCommit () {
 
 #funkcija 9 Git Push
 GitPush () {
-	git push https://$username:$password@github.com/$username/$folder3.git
+	git push https://$username:$password@github.com/$username/$choserepo1.git
 
 }
 
@@ -173,12 +174,12 @@ menu () {
 
   		elif test $izaberi == '5'
   			then
-        folder1
+        chosefile
         GitAdd
         GitCommit
-        testme1
-        testme2
-        folder2
+        username1
+        password2
+        choserepo
         GitPush
 
     	elif test $izaberi == '6'
