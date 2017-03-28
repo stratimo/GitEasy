@@ -54,12 +54,12 @@ chosefile1=$(zenity --entry --title "Pick file/folder to ADD" --width 400 --text
 }
 
 choserepo () {
-choserepo1=$(zenity --entry --title "GitHub Repo" --text "Repo name" --entry-text "Repo name!")
+choserepo1=$(zenity --entry --title "GitHub Repository" --text "Repository Name" --entry-text "Enter here Repository Name!")
 }
 
 #funkcija 2 Git Clone
 GitClone () {
-	gitclonefile=$(zenity --entry --title "Git Clone" --text "Your file will be copied here: `pwd`/" --entry-text "Url for clone/download !!!")
+	gitclonefile=$(zenity --entry --title "Git Clone" --text "Your file will be copied here:\n`pwd`/" --entry-text "Url for clone/download !!!")
 }
 
 #funkcija 3 Git Add Select File
@@ -138,13 +138,13 @@ menu () {
 |                                                                              |
 ################################################################################"
 		echo -e $white " "
-		echo -e $white"	[$okegreen"01"$white]$okegreen  Git Clone 			[$okegreen"10"$white]$okegreen Add Commit Push"
-		echo -e $white"	[$okegreen"02"$white]$okegreen  Copy Me 			  [$okegreen"11"$white]$okegreen Com 2"
-  		echo -e $white"	[$okegreen"03"$white]$okegreen  Git Status "
-  		echo -e $white"	[$okegreen"04"$white]$okegreen  Git Pull "
-  		echo -e $white"	[$okegreen"05"$white]$okegreen  Git Add , Commit , Push"
+		echo -e $white"	[$okegreen"01"$white]$okegreen  Git Clone"
+		echo -e $white"	[$okegreen"02"$white]$okegreen  Git Status"
+  		echo -e $white"	[$okegreen"03"$white]$okegreen  Git Pull"
+  		echo -e $white"	[$okegreen"04"$white]$okegreen  Git Add , Commit , Push"
+  		echo -e $white"	[$okegreen"05"$white]$okegreen  Copy Me"
   		echo -e $white"	[$okegreen"06"$white]$okegreen  Pogledaj ovo :D "
-   		echo -e $white"	[$okegreen"07"$white]$okegreen  Izadji iz programa "
+   		echo -e $white"	[$okegreen"07"$white]$okegreen  Exit "
   		echo -e " "
   		echo -n -e $red"  $madeby@$name: "; tput sgr0 #insert your choice
   		read izaberi
@@ -156,23 +156,15 @@ menu () {
 
   		elif test $izaberi == '2'
    			then
-   			CopyMe
-   			gitaddselectfile
-  			cp $0 $selectme
-  			gnome-terminal --working-directory=`pwd`/$selectme -e "bash $0"
-  			exit
-
-  		elif test $izaberi == '3'
-   			then
    			echo
    			GitStatus
    			echo
 
-  		elif test $izaberi == '4'
+  		elif test $izaberi == '3'
    			then
    			GitPull
 
-  		elif test $izaberi == '5'
+  		elif test $izaberi == '4'
   			then
         chosefile
         GitAdd
@@ -181,6 +173,14 @@ menu () {
         password2
         choserepo
         GitPush
+
+      elif test $izaberi == '5'
+        then
+        CopyMe
+        gitaddselectfile
+        cp $0 $selectme
+        gnome-terminal --working-directory=`pwd`/$selectme -e "bash $0"
+        exit
 
     	elif test $izaberi == '6'
         	then
