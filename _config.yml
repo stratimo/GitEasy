@@ -2,3 +2,5 @@ theme: jekyll-theme-architect
 
 title: [Stratimo]
 description: [Welcome to Stratimo GitHub scripts]
+
+show_downloads: ["true"]
